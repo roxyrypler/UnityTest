@@ -14,6 +14,11 @@ public class DragAndDropDynamicScript : MonoBehaviour
         prewPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print(collision.gameObject.name);
+    }
+
     // Update is called once per frame
     void Update()
     {
