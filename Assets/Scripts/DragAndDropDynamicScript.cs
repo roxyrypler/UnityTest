@@ -16,8 +16,9 @@ public class DragAndDropDynamicScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.name);
+        print("Hello");
     }
+
 
     // Update is called once per frame
     void Update()
@@ -35,10 +36,7 @@ public class DragAndDropDynamicScript : MonoBehaviour
         {
             isDragging = false;
         }
-
         dragging(isDragging, mousePosition);
-
-
     }
 
     void dragging(bool isDragging, Vector2 mousePos)
@@ -49,8 +47,13 @@ public class DragAndDropDynamicScript : MonoBehaviour
         }
     }
 
+    void snapToGrid()
+    {
+        
+    }
+
     void getAllGridObj()
     {
-
+        
     }
 }
