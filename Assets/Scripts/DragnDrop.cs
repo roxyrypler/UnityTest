@@ -20,7 +20,7 @@ public class DragnDrop : MonoBehaviour
     private bool isInGrid = false;
     private bool doOnce = false;
     private bool isHoldingKick = false;
-    private bool isHoldeingHihat = false;
+    private bool isHoldingHihat = false;
     private bool isHoldingSnare = false;
 
     private Vector2 gridSnapLoc;
@@ -63,7 +63,6 @@ public class DragnDrop : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mBDown = true;
-           
         }
         
         if (Input.GetMouseButtonUp(0))
@@ -75,50 +74,18 @@ public class DragnDrop : MonoBehaviour
         {
             if (kickSprite)
             {
-                kick.GetComponent<BoxCollider2D>().enabled = false;
-                doOnce = true;
+                moveSprite(kick);
                 isHoldingKick = true;
-
-                if (isInGrid)
-                {
-                    kick.transform.position = new Vector2(gridSnapLoc.x, gridSnapLoc.y);
-                }
-                else
-                {
-                    kick.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
-                    
-                }
-            }else if (snareSprite)
+            }
+            else if (snareSprite)
             {
-                snare.GetComponent<BoxCollider2D>().enabled = false;
-                doOnce = true;
+                moveSprite(snare);
                 isHoldingSnare = true;
-
-                if (isInGrid)
-                {
-                    snare.transform.position = new Vector2(gridSnapLoc.x, gridSnapLoc.y);
-                }
-                else
-                {
-                    snare.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
-
-                }
 
             }else if (hihatSprite)
             {
-                hihat.GetComponent<BoxCollider2D>().enabled = false;
-                doOnce = true;
-                isHoldeingHihat = true;
-
-                if (isInGrid)
-                {
-                    hihat.transform.position = new Vector2(gridSnapLoc.x, gridSnapLoc.y);
-                }
-                else
-                {
-                    hihat.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
-
-                }
+                moveSprite(hihat);
+                isHoldingHihat = true;
             }
         }else
         {
@@ -134,6 +101,21 @@ public class DragnDrop : MonoBehaviour
         
     }
 
+    private void moveSprite(GameObject obj)
+    {
+        obj.GetComponent<BoxCollider2D>().enabled = false;
+        doOnce = true;
+
+        if (isInGrid)
+        {
+            obj.transform.position = new Vector2(gridSnapLoc.x, gridSnapLoc.y);
+        }
+        else
+        {
+            obj.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
+        }
+    }
+
     void spawnAndReset(bool kickSprite, bool snareSprite, bool hihatSprite)
     {
         if (isHoldingKick)
@@ -142,7 +124,7 @@ public class DragnDrop : MonoBehaviour
             {
                 Instantiate(kickPrefab, new Vector2(kick.transform.position.x, kick.transform.position.y), Quaternion.identity);
             }
-        }else if (isHoldeingHihat)
+        }else if (isHoldingHihat)
         {
             if (isInGrid && hihatSprite)
             {
@@ -162,7 +144,7 @@ public class DragnDrop : MonoBehaviour
         kick.transform.position = new Vector2(kickStartPos.x, kickStartPos.y);
         snare.transform.position = new Vector2(snareStartPos.x, snareStartPos.y);
         isHoldingKick = false;
-        isHoldeingHihat = false;
+        isHoldingHihat = false;
         isHoldingSnare = false;
 
     }
