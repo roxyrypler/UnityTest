@@ -18,7 +18,6 @@ public class DragAndDropDynamicScript : MonoBehaviour
     void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         bool mouseIsOver = gameObject.GetComponent<SpriteRenderer>().bounds.Contains(mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -43,5 +42,10 @@ public class DragAndDropDynamicScript : MonoBehaviour
         {
             gameObject.transform.position = new Vector2(mousePos.x, mousePos.y);
         }
+    }
+
+    void getAllGridObj()
+    {
+
     }
 }
