@@ -2464,10 +2464,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 406923629}
   m_HandleRect: {fileID: 933492023}
   m_Direction: 0
-  m_MinValue: -1
-  m_MaxValue: 1
+  m_MinValue: -0.5
+  m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2611,23 +2611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f477dd6c5de0d4da9587c657ae4914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configKeyBindings: {fileID: 11400000, guid: 056ad48030301a046916c7160a637514, type: 2}
-  configSettings: {fileID: 11400000, guid: f5f564926413ebd4281381e51035e4ff, type: 2}
-  configPlayMode: {fileID: 11400000, guid: 626cc67c2176a0047b0ca9f8b805595f, type: 2}
-  componentManipulator:
-    parameterDataCollection:
-    - targetGameobject: {fileID: 1312573674}
-      data:
-      - component: {fileID: 1312573676}
-        componentid: 10762
-        fieldData:
-        - parentFields: []
-          fieldName: m_Value
-          assignedMidiInput: 0
-  dataVizualizerPrefab: {fileID: 1404030093849474, guid: 11fba3df93d0e8141b54bdfc595ce445,
-    type: 3}
-  selectedGameObject: {fileID: 1312573674}
-  SelectedTab: 0
 --- !u!4 &1474129344
 Transform:
   m_ObjectHideFlags: 0
