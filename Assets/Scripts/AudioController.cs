@@ -48,9 +48,9 @@ public class AudioController : MonoBehaviour
 
         if (play)
         {
-            if (line.transform.position.x >= 3.27)
+            if (line.transform.position.x >= 3.20)
             {
-                line.transform.position = new Vector2(-3.24f, line.transform.position.y);
+                line.transform.position = new Vector2(-3.10f, line.transform.position.y);
             }
             else if (line.transform.position.x <= -3.25)
             {

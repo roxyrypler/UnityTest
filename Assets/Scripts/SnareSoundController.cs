@@ -20,7 +20,7 @@ public class SnareSoundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(241.0f, 0.0f, 178.0f, 1.0f);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(30.0f, 187.0f, 248.0f, 1.0f); 
         Sound.Play(0);
     }
 

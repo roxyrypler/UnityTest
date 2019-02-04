@@ -20,7 +20,7 @@ public class HihatSoundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(241.0f, 0.0f, 178.0f, 1.0f);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(0.0f, 255.0f, 65.0f, 1.0f);
         Sound.Play(0);
     }
 
