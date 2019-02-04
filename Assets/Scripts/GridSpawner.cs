@@ -13,7 +13,7 @@ public class GridSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //gridSpawner();
+        gridSpawner();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class GridSpawner : MonoBehaviour
                 SoundHolderSpawned.Add(Instantiate(SoundHolder, new Vector2((i * 0.8f) - 2.8f, (j * 0.8f) - 0.5f), Quaternion.identity));
             }
         }
-        var tempArr = SoundHolderSpawned.ToArray();
+        //var tempArr = SoundHolderSpawned.ToArray();
         
     }
 

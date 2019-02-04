@@ -7,23 +7,27 @@ public class DragAndDropDynamicScript : MonoBehaviour
 
     private Vector2 prewPos;
     bool isDragging = false;
+    bool isOverGridObj = false;
+    bool doOnce = false;
 
-    private GameObject gridSpawner;
-    private GridSpawner GridSpawnercript;
-
-    List<GameObject> grids = new List<GameObject>();
-    private GameObject[] gridArray;
+    Vector2 TempGridObjLoc;
 
     // Start is called before the first frame update
     void Start()
     {
         prewPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        getAllGridObj();
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        print("Hello");
+        print(collision.gameObject.name);
+        isOverGridObj = true;
+        TempGridObjLoc = new Vector2(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y);
+    }
+    
+    private void OnMouseExit()
+    {
+        isOverGridObj = false;
     }
 
 
@@ -43,7 +47,7 @@ public class DragAndDropDynamicScript : MonoBehaviour
         {
             isDragging = false;
         }
-        dragging(isDragging, mousePosition);
+        dragging(isDragging, mousePosition); 
     }
 
     void dragging(bool isDragging, Vector2 mousePos)
@@ -51,19 +55,11 @@ public class DragAndDropDynamicScript : MonoBehaviour
         if (isDragging)
         {
             gameObject.transform.position = new Vector2(mousePos.x, mousePos.y);
+            doOnce = true;
+        }else if (!isDragging && isOverGridObj && doOnce)
+        {
+            gameObject.transform.position = new Vector2(TempGridObjLoc.x, TempGridObjLoc.y);
+            doOnce = false;
         }
-    }
-
-    void snapToGrid()
-    {
-        
-    }
-
-    void getAllGridObj()
-    {
-        GridSpawnercript = GameObject.Find("GridSpawner").GetComponent<GridSpawner>();
-        GridSpawnercript.gridSpawner();
-        gridArray = GridSpawnercript.SoundHolderSpawned.ToArray();
-        print(gridArray.Length);
     }
 }

@@ -318,7 +318,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -834,7 +834,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1249258848}
   - component: {fileID: 1249258847}
-  - component: {fileID: 1249258849}
   - component: {fileID: 1249258850}
   m_Layer: 0
   m_Name: PlayBtn
@@ -905,19 +904,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1249258849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249258846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e12c26ee2cd5b24b85ae987030a72b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioControllercript: {fileID: 0}
 --- !u!61 &1249258850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1187,6 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundHolder: {fileID: 1776946817566505756}
+  SoundHolderSpawned: []
 --- !u!4 &1580041919
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,6 +1300,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1617831429094536131, guid: c0273bc31f6142a448b2587ea1becff3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617831429094536131, guid: c0273bc31f6142a448b2587ea1becff3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 1969192942597814350, guid: c0273bc31f6142a448b2587ea1becff3,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1335,12 +1332,12 @@ PrefabInstance:
     - target: {fileID: 4781931768123550070, guid: b0f57fb91072e5741b63415ad6cb65d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.39
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 4781931768123550070, guid: b0f57fb91072e5741b63415ad6cb65d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -1.84
       objectReference: {fileID: 0}
     - target: {fileID: 4781931768123550070, guid: b0f57fb91072e5741b63415ad6cb65d0,
         type: 3}
@@ -1512,7 +1509,8 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8183674066832942709, guid: 65730b68df1947b409e00813203e7b89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 65730b68df1947b409e00813203e7b89, type: 3}
 --- !u!1001 &8387491081742248520
 PrefabInstance:
@@ -1601,5 +1599,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8387491082320321354, guid: 4564dd66fa172c7478feb057894577f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4564dd66fa172c7478feb057894577f8, type: 3}
