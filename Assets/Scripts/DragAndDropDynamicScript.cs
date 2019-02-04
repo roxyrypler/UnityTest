@@ -13,6 +13,12 @@ public class DragAndDropDynamicScript : MonoBehaviour
     public GameObject kickSound;
     public GameObject snareSound;
     public GameObject hihatSound;
+    public GameObject sound1;
+    public GameObject sound2;
+    public GameObject sound3;
+    public GameObject sound4;
+    public GameObject sound5;
+    public GameObject sound6;
 
     Vector2 TempGridObjLoc;
 
@@ -84,8 +90,31 @@ public class DragAndDropDynamicScript : MonoBehaviour
             else if (gameObject.name == "Hi-Hat")
             {
                 Instantiate(hihatSound, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }else if (gameObject.name == "Sound1")
+            {
+                Instantiate(sound1, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
             }
-            
+            else if (gameObject.name == "Sound2")
+            {
+                Instantiate(sound2, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+            else if (gameObject.name == "Sound3")
+            {
+                Instantiate(sound3, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+            else if (gameObject.name == "Sound4")
+            {
+                Instantiate(sound4, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+            else if (gameObject.name == "Sound5")
+            {
+                Instantiate(sound5, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+            else if (gameObject.name == "Sound6")
+            {
+                Instantiate(sound6, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+
             doOnce = false;
         }
     }
