@@ -5,24 +5,39 @@ using UnityEngine;
 public class DragAndDropDynamicScript : MonoBehaviour
 {
 
-    private Vector2 prewPos;
+    private Vector2 startPos;
     bool isDragging = false;
     bool isOverGridObj = false;
     bool doOnce = false;
+
+    public GameObject kickSound;
+    public GameObject snareSound;
+    public GameObject hihatSound;
 
     Vector2 TempGridObjLoc;
 
     // Start is called before the first frame update
     void Start()
     {
-        prewPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        startPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Line")
+        {
+            print("Jaja");
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        print(collision.gameObject.name);
-        isOverGridObj = true;
-        TempGridObjLoc = new Vector2(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y);
+        //print(collision.gameObject.name);
+        if (collision.gameObject.name == "SoundHolder(Clone)")
+        {
+            isOverGridObj = true;
+            TempGridObjLoc = new Vector2(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y);
+        }
     }
     
     private void OnMouseExit()
@@ -58,7 +73,19 @@ public class DragAndDropDynamicScript : MonoBehaviour
             doOnce = true;
         }else if (!isDragging && isOverGridObj && doOnce)
         {
-            gameObject.transform.position = new Vector2(TempGridObjLoc.x, TempGridObjLoc.y);
+            gameObject.transform.position = new Vector2(startPos.x, startPos.y);
+            if (gameObject.name == "Kick")
+            {
+                Instantiate(kickSound, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }else if (gameObject.name == "Snare")
+            {
+                Instantiate(snareSound, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+            else if (gameObject.name == "Hi-Hat")
+            {
+                Instantiate(hihatSound, new Vector2(TempGridObjLoc.x, TempGridObjLoc.y), Quaternion.identity);
+            }
+            
             doOnce = false;
         }
     }

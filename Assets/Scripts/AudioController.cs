@@ -9,10 +9,6 @@ public class AudioController : MonoBehaviour
     public GameObject line;
     public GameObject playeBtn;
 
-    public AudioSource kickClip;
-    public AudioSource hiHatClip;
-    public AudioSource snareClip;
-
     public Slider Slider;
 
     private bool play = false;
@@ -31,29 +27,15 @@ public class AudioController : MonoBehaviour
         isOverPlayButton = false;
     }
 
-    public void kickSound()
+    public void setBPM()
     {
-        kickClip.Play(0);
+        BPM = Slider.value;
     }
-
-    public void hiHatSound()
-    {
-        hiHatClip.Play(0);
-    }
-
-    public void snareSound()
-    {
-        snareClip.Play(0);
-    }
-
-
-   
 
     // Update is called once per frame
     void Update()
     {
 
-        BPM = Slider.value;
 
         if (isOverPlayButton)
         {
