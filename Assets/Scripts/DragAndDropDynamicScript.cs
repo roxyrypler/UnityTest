@@ -8,10 +8,17 @@ public class DragAndDropDynamicScript : MonoBehaviour
     private Vector2 prewPos;
     bool isDragging = false;
 
+    private GameObject gridSpawner;
+    private GridSpawner GridSpawnercript;
+
+    List<GameObject> grids = new List<GameObject>();
+    private GameObject[] gridArray;
+
     // Start is called before the first frame update
     void Start()
     {
         prewPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+        getAllGridObj();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,6 +61,9 @@ public class DragAndDropDynamicScript : MonoBehaviour
 
     void getAllGridObj()
     {
-        
+        GridSpawnercript = GameObject.Find("GridSpawner").GetComponent<GridSpawner>();
+        GridSpawnercript.gridSpawner();
+        gridArray = GridSpawnercript.SoundHolderSpawned.ToArray();
+        print(gridArray.Length);
     }
 }

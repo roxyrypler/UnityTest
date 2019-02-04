@@ -9,11 +9,11 @@ public class GridSpawner : MonoBehaviour
 
     public GameObject SoundHolder;
 
-    List<GameObject> SoundHolderSpawned = new List<GameObject>();
+    public List<GameObject> SoundHolderSpawned = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        gridSpawner();
+        //gridSpawner();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class GridSpawner : MonoBehaviour
         
     }
 
-    void gridSpawner()
+    public void gridSpawner()
     {
         for (var i = 0; i < gridX; i++)
         {
@@ -32,10 +32,10 @@ public class GridSpawner : MonoBehaviour
             }
         }
         var tempArr = SoundHolderSpawned.ToArray();
-        assignTag(tempArr);
+        
     }
 
-    void assignTag(GameObject[] tempArr)
+    public void assignTag(GameObject[] tempArr)
     {
         for (var i = 0; i < tempArr.Length; i++)
         {
